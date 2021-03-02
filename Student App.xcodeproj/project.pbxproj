@@ -13,6 +13,12 @@
 		353F347025EEC466003AEC00 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F345B25EEC465003AEC00 /* ContentView.swift */; };
 		353F347125EEC466003AEC00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 353F345C25EEC466003AEC00 /* Assets.xcassets */; };
 		353F347225EEC466003AEC00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 353F345C25EEC466003AEC00 /* Assets.xcassets */; };
+		353F348325EEC80E003AEC00 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F348225EEC80E003AEC00 /* Student.swift */; };
+		353F348425EEC80E003AEC00 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F348225EEC80E003AEC00 /* Student.swift */; };
+		353F348825EEC84A003AEC00 /* StudentListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F348725EEC84A003AEC00 /* StudentListItem.swift */; };
+		353F348925EEC84A003AEC00 /* StudentListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F348725EEC84A003AEC00 /* StudentListItem.swift */; };
+		353F348F25EEE72F003AEC00 /* GradeBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F348E25EEE72F003AEC00 /* GradeBar.swift */; };
+		353F349025EEE72F003AEC00 /* GradeBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F348E25EEE72F003AEC00 /* GradeBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,9 @@
 		353F346925EEC466003AEC00 /* Student App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Student App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		353F346B25EEC466003AEC00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		353F346C25EEC466003AEC00 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		353F348225EEC80E003AEC00 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		353F348725EEC84A003AEC00 /* StudentListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentListItem.swift; sourceTree = "<group>"; };
+		353F348E25EEE72F003AEC00 /* GradeBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +68,9 @@
 			children = (
 				353F345A25EEC465003AEC00 /* Student_AppApp.swift */,
 				353F345B25EEC465003AEC00 /* ContentView.swift */,
+				353F348E25EEE72F003AEC00 /* GradeBar.swift */,
+				353F348725EEC84A003AEC00 /* StudentListItem.swift */,
+				353F348225EEC80E003AEC00 /* Student.swift */,
 				353F345C25EEC466003AEC00 /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -188,7 +200,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				353F346F25EEC466003AEC00 /* ContentView.swift in Sources */,
+				353F348325EEC80E003AEC00 /* Student.swift in Sources */,
+				353F348825EEC84A003AEC00 /* StudentListItem.swift in Sources */,
 				353F346D25EEC466003AEC00 /* Student_AppApp.swift in Sources */,
+				353F348F25EEE72F003AEC00 /* GradeBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,7 +212,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				353F347025EEC466003AEC00 /* ContentView.swift in Sources */,
+				353F348425EEC80E003AEC00 /* Student.swift in Sources */,
+				353F348925EEC84A003AEC00 /* StudentListItem.swift in Sources */,
 				353F346E25EEC466003AEC00 /* Student_AppApp.swift in Sources */,
+				353F349025EEE72F003AEC00 /* GradeBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
