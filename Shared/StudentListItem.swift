@@ -12,8 +12,9 @@ struct StudentListItem: View {
     
     var body: some View {
         HStack {
-            student.studentPicture
+            student.image
                 .resizable()
+                .aspectRatio(contentMode: .fill)
                 .frame(width: 60, height: 60)
                 .clipShape(Circle())
                 //.padding(.horizontal)
@@ -26,8 +27,11 @@ struct StudentListItem: View {
 }
 
 struct StudentListItem_Previews: PreviewProvider {
+    static let sData = studentData()
     static var previews: some View {
-        StudentListItem(student: Student(firstName: "Tim", lastName: "Cook", gradeYear: "10th", averageScore: 94.3, studentPicture: Image("ProfileImage")))
+        StudentListItem(student: sData.students[0])
+            .environmentObject(sData)
             .previewLayout(.fixed(width: 300, height: 70))
     }
 }
+

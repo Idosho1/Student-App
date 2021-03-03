@@ -1,0 +1,42 @@
+[
+    {
+        "id": 0,
+        "firstName": "Ben",
+        "lastName": "Smith",
+        "gradeYear": "9th",
+        "averageScore": 95.5,
+        "address": "35 Barn St., New York, 12345",
+        "birthdate": "02/14/2006",
+        "cell": "(617)123-4567",
+        "parents": "Mary, Dan",
+        "homeCell": "(617)234-5678",
+        "studentPictureName": "benPic",
+        
+    },
+    {
+        "id": 1,
+        "firstName": "Anna",
+        "lastName": "Williams",
+        "gradeYear": "9th",
+        "averageScore": 90.1,
+        "address": "14 Brown St., New York, 12347",
+        "birthdate": "04/10/2006",
+        "cell": "(617)345-6789",
+        "parents": "Clara, Ron",
+        "homeCell": "(617)456-7890",
+        "studentPictureName": "annaPic",
+    },
+    {
+        "id": 2,
+        "firstName": "Sophie",
+        "lastName": "Johnson",
+        "gradeYear": "11th",
+        "averageScore": 87.5,
+        "address": "25 Main Rd., New York, 12349",
+        "birthdate": "02/14/2004",
+        "cell": "(617)567-8901",
+        "parents": "Susanne, Greg",
+        "homeCell": "(617)678-9012",
+        "studentPictureName": "sophiePic",
+    }
+]
