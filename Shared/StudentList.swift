@@ -44,29 +44,37 @@ struct StudentList: View {
     var body: some View {
         NavigationView {
             List {
-                Picker("", selection: $gradesIndex) {
-                    Text("All").tag(0)
-                    Text("A").tag(1)
-                    Text("B").tag(2)
-                    Text("C").tag(3)
-                    Text("D").tag(4)
-                }.pickerStyle(SegmentedPickerStyle()).padding(.vertical, 5)
+                Section(header: Text("Filter Grade").textCase(.none)) {
+                    Picker("", selection: $gradesIndex) {
+                        Text("All").tag(0)
+                        Text("A").tag(1)
+                        Text("B").tag(2)
+                        Text("C").tag(3)
+                        Text("D").tag(4)
+                    }.pickerStyle(SegmentedPickerStyle()).padding(.vertical, 5)
+                }
                 
                 if filteredStudents.count > 0 {
+                    Section(header: Text("Students").textCase(.none)) {
                     ForEach(filteredStudents) { student in
                         NavigationLink(destination: StudentDetail(student: student)) {
                             StudentListItem(student: student).padding(.vertical, 3)
                         }
                     }
-                    if gradesIndex != 0 {
-                        Text("\(filteredStudents.count) / \(students.count) Students Displayed").foregroundColor(.secondary)
-                        Text("\(averageFilteredScore) Displayed Average / \(averageScore) Overall Average").foregroundColor(.secondary)
-                    } else {
-                        Text("\(students.count) Total Students").foregroundColor(.secondary)
-                        Text("\(averageScore) Average Student Score").foregroundColor(.secondary)
+                }
+                    Section(header: Text("Details").textCase(.none)) {
+                        if gradesIndex != 0 {
+                            Text("\(filteredStudents.count) / \(students.count) Students Displayed").foregroundColor(.secondary)
+                            Text("\(averageFilteredScore) Displayed Average / \(averageScore) Overall Average").foregroundColor(.secondary)
+                        } else {
+                            Text("\(students.count) Total Students").foregroundColor(.secondary)
+                            Text("\(averageScore) Average Student Score").foregroundColor(.secondary)
+                        }
                     }
                 } else {
-                    Text("No Students Found!").foregroundColor(.secondary)
+                    Section(header: Text("Details").textCase(.none)) {
+                        Text("No Students Found!").foregroundColor(.secondary)
+                    }
                 }
             }.navigationTitle("Students")
         }
@@ -76,6 +84,7 @@ struct StudentList: View {
 struct StudentList_Previews: PreviewProvider {
     static var previews: some View {
         StudentList()
+            .environmentObject(studentData())
     }
 }
 
