@@ -17,10 +17,8 @@ struct StudentListItem: View {
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 60, height: 60)
                 .clipShape(Circle())
-                //.padding(.horizontal)
             Text("\(student.firstName) \(student.lastName)")
             Spacer()
-            //GradeBar(grade: student.averageScore)
             Spacer()
         }
     }

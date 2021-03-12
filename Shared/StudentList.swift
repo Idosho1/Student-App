@@ -30,7 +30,7 @@ struct StudentList: View {
     }
     
     var filteredStudents: [Student] {
-        students.filter { student in
+        return students.filter { student in
             switch grades[gradesIndex] {
             case "A": return (student.averageScore >= 90)
             case "B": return (student.averageScore >= 80 && student.averageScore < 90)
@@ -41,6 +41,11 @@ struct StudentList: View {
         }.sorted { $0.firstName.lowercased() < $1.firstName.lowercased() }
     }
     
+/*    func deleteStudent(at sortedOffsets: IndexSet) {
+        let unsoretdOffsets = IndexSet()
+        studentData.students.remove(atOffsets: unsoretdOffsets)
+    }
+*/
     var body: some View {
         NavigationView {
             List {
@@ -60,7 +65,10 @@ struct StudentList: View {
                         NavigationLink(destination: StudentDetail(student: student)) {
                             StudentListItem(student: student).padding(.vertical, 3)
                         }
-                    }
+                    }/*.onDelete(perform: deleteStudent)
+                      studentData.students = studentData.students.sorted { $0.firstName.lowercased() < $1.firstName.lowercased() }
+                      studentData.students.remove(atOffsets: indexSet)
+                    })*/
                 }
                     Section(header: Text("Details").textCase(.none)) {
                         if gradesIndex != 0 {

@@ -17,15 +17,9 @@ struct StudentDetail: View {
 
     var body: some View {
         ScrollView{
-            Color.blue.opacity(0.2)
-                .ignoresSafeArea()
-                .frame(height: 300)
- 
-        
             
            sImage(studentImage: student.image)
-                .offset(y: -200)
-                .padding(.bottom, -200)
+                .padding()
                 .frame(alignment: .center)
            
             VStack (alignment: .leading){
@@ -37,13 +31,14 @@ struct StudentDetail: View {
                         .font(.title)
                         .foregroundColor(.primary)
                 }
-                .padding(5)
+                .padding(20)
                 HStack{
-                    Text("Average Score: \(student.averageScore)")
+                    
+                    Text("    Average Score: \(String(format: "%.1f", student.averageScore))")
                     Spacer()
-                    Text("Grade:\(student.gradeYear)")
-                }
-                .background(Color.blue.opacity(0.1))
+                    Text("Grade: \(student.gradeYear)    ")
+                    
+                }.padding(.bottom)
                 .font(.subheadline)
                 .foregroundColor(.secondary)
                 .frame(height:1)
@@ -51,16 +46,20 @@ struct StudentDetail: View {
                 Divider()
 
                 Text("About \(student.firstName) \(student.lastName)")
-                    .font(.title3)
- 
+                    .padding()
+                    .font(Font.title2.weight(.heavy))
                 VStack(alignment: .leading){
                     Text("Address: \(student.address)")
+                    Spacer()
                     Text("Birthdate: \(student.birthdate)")
+                    Spacer()
                     Text("Cell Number: \(student.cell)")
+                    Spacer()
                     Text("Home Number: \(student.homeCell)")
+                    Spacer()
                     Text("Parents: \(student.parents)")
                 }
-                .font(.subheadline)
+                .font(Font.subheadline.weight(.light))
                 .padding()
             }
             .navigationTitle("\(student.lastName), \(student.firstName)")
@@ -76,4 +75,3 @@ struct StudentDetail_Previews: PreviewProvider {
             .environmentObject(sData)
     }
 }
-

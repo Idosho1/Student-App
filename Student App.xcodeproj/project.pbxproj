@@ -17,8 +17,6 @@
 		353F348425EEC80E003AEC00 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F348225EEC80E003AEC00 /* Student.swift */; };
 		353F348825EEC84A003AEC00 /* StudentListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F348725EEC84A003AEC00 /* StudentListItem.swift */; };
 		353F348925EEC84A003AEC00 /* StudentListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F348725EEC84A003AEC00 /* StudentListItem.swift */; };
-		353F348F25EEE72F003AEC00 /* GradeBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F348E25EEE72F003AEC00 /* GradeBar.swift */; };
-		353F349025EEE72F003AEC00 /* GradeBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F348E25EEE72F003AEC00 /* GradeBar.swift */; };
 		353F349425EF053D003AEC00 /* StudentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F349325EF053D003AEC00 /* StudentList.swift */; };
 		353F349525EF053D003AEC00 /* StudentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F349325EF053D003AEC00 /* StudentList.swift */; };
 		353F349925EF05AF003AEC00 /* StudentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F349825EF05AF003AEC00 /* StudentData.swift */; };
@@ -42,7 +40,6 @@
 		353F346C25EEC466003AEC00 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		353F348225EEC80E003AEC00 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		353F348725EEC84A003AEC00 /* StudentListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentListItem.swift; sourceTree = "<group>"; };
-		353F348E25EEE72F003AEC00 /* GradeBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeBar.swift; sourceTree = "<group>"; };
 		353F349325EF053D003AEC00 /* StudentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentList.swift; sourceTree = "<group>"; };
 		353F349825EF05AF003AEC00 /* StudentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentData.swift; sourceTree = "<group>"; };
 		353F349D25EF05CF003AEC00 /* sImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sImage.swift; sourceTree = "<group>"; };
@@ -84,7 +81,6 @@
 				353F345A25EEC465003AEC00 /* Student_AppApp.swift */,
 				353F345B25EEC465003AEC00 /* ContentView.swift */,
 				353F349325EF053D003AEC00 /* StudentList.swift */,
-				353F348E25EEE72F003AEC00 /* GradeBar.swift */,
 				353F348725EEC84A003AEC00 /* StudentListItem.swift */,
 				353F348225EEC80E003AEC00 /* Student.swift */,
 				353F349825EF05AF003AEC00 /* StudentData.swift */,
@@ -229,7 +225,6 @@
 				353F349425EF053D003AEC00 /* StudentList.swift in Sources */,
 				353F349E25EF05CF003AEC00 /* sImage.swift in Sources */,
 				353F346D25EEC466003AEC00 /* Student_AppApp.swift in Sources */,
-				353F348F25EEE72F003AEC00 /* GradeBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,7 +240,6 @@
 				353F349525EF053D003AEC00 /* StudentList.swift in Sources */,
 				353F349F25EF05CF003AEC00 /* sImage.swift in Sources */,
 				353F346E25EEC466003AEC00 /* Student_AppApp.swift in Sources */,
-				353F349025EEE72F003AEC00 /* GradeBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
