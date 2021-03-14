@@ -20,47 +20,52 @@ struct StudentDetail: View {
             
            sImage(studentImage: student.image)
                 .padding()
+                .padding(.top,20)
                 .frame(alignment: .center)
-           
-            VStack (alignment: .leading){
-                
-                
- 
+            
+            VStack {
+                Divider().padding()
                 HStack {
-                    Text("\(student.lastName), \(student.firstName)")
-                        .font(.title)
-                        .foregroundColor(.primary)
-                }
-                .padding(20)
-                HStack{
-                    
-                    Text("    Average Score: \(String(format: "%.1f", student.averageScore))")
+                    Text("Address").bold()
                     Spacer()
-                    Text("Grade: \(student.gradeYear)    ")
-                    
-                }.padding(.bottom)
-                .font(.subheadline)
-                .foregroundColor(.secondary)
-                .frame(height:1)
+                    Text(student.address)
+                }.padding(.horizontal,20).padding(.vertical,10)
                 
-                Divider()
-
-                Text("About \(student.firstName) \(student.lastName)")
-                    .padding()
-                    .font(Font.title2.weight(.heavy))
-                VStack(alignment: .leading){
-                    Text("Address: \(student.address)")
+                HStack {
+                    Text("Birthdate").bold()
                     Spacer()
-                    Text("Birthdate: \(student.birthdate)")
+                    Text(student.birthdate)
+                }.padding(.horizontal,20).padding(.vertical,10)
+                
+                HStack {
+                    Text("Cell Number").bold()
                     Spacer()
-                    Text("Cell Number: \(student.cell)")
+                    Text(student.cell)
+                }.padding(.horizontal,20).padding(.vertical,10)
+                
+                HStack {
+                    Text("Home Number").bold()
                     Spacer()
-                    Text("Home Number: \(student.homeCell)")
+                    Text(student.homeCell)
+                }.padding(.horizontal,20).padding(.vertical,10)
+                
+                HStack {
+                    Text("Parents").bold()
                     Spacer()
-                    Text("Parents: \(student.parents)")
-                }
-                .font(Font.subheadline.weight(.light))
-                .padding()
+                    Text(student.parents)
+                }.padding(.horizontal,20).padding(.vertical,10)
+                
+                HStack {
+                    Text("Grade").bold().italic()
+                    Spacer()
+                    Text(student.gradeYear).italic()
+                }.padding(.horizontal,20).padding(.top,60)
+                
+                HStack {
+                    Text("Score").bold().italic()
+                    Spacer()
+                    Text(String(format: "%.1f", student.averageScore)).italic()
+                }.padding(.horizontal,20).padding(.vertical,10)
             }
             .navigationTitle("\(student.lastName), \(student.firstName)")
             
