@@ -21,6 +21,7 @@ struct Student: Decodable, Identifiable {
     var parents: String
     var homeCell: String
     var studentPictureName: String
+    var added: Bool = false
     
     var image: Image {
         Image(studentPictureName)

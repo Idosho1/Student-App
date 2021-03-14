@@ -11,7 +11,7 @@
         "parents": "Mary, Dan",
         "homeCell": "(617)234-5678",
         "studentPictureName": "benPic",
-        
+        "added": false,
     },
     {
         "id": 1,
@@ -25,6 +25,7 @@
         "parents": "Clara, Ron",
         "homeCell": "(617)456-7890",
         "studentPictureName": "annaPic",
+        "added": false,
     },
     {
         "id": 2,
@@ -38,6 +39,7 @@
         "parents": "Susanne, Greg",
         "homeCell": "(617)678-9012",
         "studentPictureName": "sophiePic",
+        "added": false,
     },
       {
         "id": 3,
@@ -51,6 +53,7 @@
         "parents": "Elle, Ben",
         "homeCell": "(617)390-1234",
         "studentPictureName": "johnPic",
+        "added": false,
     },
   {
         "id": 4,
@@ -64,6 +67,7 @@
         "parents": "Lily, Grant",
         "homeCell": "(617)901-2345",
         "studentPictureName": "liamPic",
+        "added": false,
     },
     {
         "id": 5,
@@ -77,6 +81,7 @@
         "parents": "Sophia, Jackson",
         "homeCell": "(617)112-3456",
         "studentPictureName": "abigailPic",
+        "added": false,
     },
     {
         "id": 6,
@@ -90,6 +95,7 @@
         "parents": "Anna, Leonard",
         "homeCell": "(617)134-5678",
         "studentPictureName": "jacobPic",
+        "added": false,
     },
     {
         "id": 7,
@@ -103,6 +109,7 @@
         "parents": "Annabelle, Andrew",
         "homeCell": "(617)156-7890",
         "studentPictureName": "matthewPic",
+        "added": false,
     },
     {
         "id": 8,
@@ -116,6 +123,7 @@
         "parents": "Hailey, Joseph",
         "homeCell": "(617)178-9012",
         "studentPictureName": "cameronPic",
+        "added": false,
     },
     {
         "id": 9,
@@ -129,6 +137,7 @@
         "parents": "Kayla, Kyle",
         "homeCell": "(617)190-1234",
         "studentPictureName": "avaPic",
+        "added": false,
     },
     {
         "id": 10,
@@ -142,6 +151,7 @@
         "parents": "Grace, Joel",
         "homeCell": "(617)111-2345",
         "studentPictureName": "miaPic",
+        "added": false,
     },
     {
         "id": 11,
@@ -155,6 +165,7 @@
         "parents": "Kira, Carl",
         "homeCell": "(617)113-4567",
         "studentPictureName": "oliviaPic",
+        "added": false,
     },
     {
         "id": 12,
@@ -168,6 +179,7 @@
         "parents": "Paige, Bryan",
         "homeCell": "(617)115-6789",
         "studentPictureName": "dylanPic",
+        "added": false,
     },
     {
         "id": 13,
@@ -181,6 +193,7 @@
         "parents": "Melissa, Ashton",
         "homeCell": "(617)117-8901",
         "studentPictureName": "davidPic",
+        "added": false,
     },
     {
         "id": 14,
@@ -194,6 +207,7 @@
         "parents": "Meredith, Alex",
         "homeCell": "(617)118-9012",
         "studentPictureName": "calvinPic",
+        "added": false,
     }
  
 ]

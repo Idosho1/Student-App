@@ -11,6 +11,10 @@ struct AddStudent: View {
     @Binding var showModal: Bool
     @EnvironmentObject var studentData: studentData
     
+    @State private var sourceType: UIImagePickerController.SourceType = .camera
+    @State private var selectedImage: UIImage?
+    @State private var isImagePickerDisplay = false
+    
     @State private var grade = "9th"
     let grades = ["9th","10th","11th","12th"]
     
@@ -48,8 +52,13 @@ struct AddStudent: View {
             let formatter = DateFormatter()
             formatter.dateFormat = "MM/dd/yyyy"
             
-            studentData.students.append(Student(id: id, firstName: firstName, lastName: lastName, gradeYear: grade, averageScore: Double(score)!, address: address, birthdate: formatter.string(from: birthdate), cell: cellNumber, parents: parents, homeCell: homeNumber, studentPictureName: "\(firstName)Pic"))
+            studentData.students.append(Student(id: id, firstName: firstName, lastName: lastName, gradeYear: grade, averageScore: Double(score)!, address: address, birthdate: formatter.string(from: birthdate), cell: cellNumber, parents: parents, homeCell: homeNumber, studentPictureName: "\(firstName)Pic", added: true))
             studentData.students = studentData.students.sorted { $0.firstName.lowercased() < $1.firstName.lowercased() }
+            if selectedImage != nil {
+                studentData.images["\(firstName)Pic"] = selectedImage
+            } else {
+                studentData.images["\(firstName)Pic"] = UIImage(named: "profile")
+            }
             showModal.toggle()
         } else {
             showingAlert = true
@@ -59,6 +68,35 @@ struct AddStudent: View {
     var body: some View {
         NavigationView {
             Form {
+                Section {
+                    HStack {
+                        if selectedImage != nil {
+                            Image(uiImage: selectedImage!)
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .clipShape(Circle())
+                                .frame(width: 100, height: 100)
+                                .overlay(Circle().stroke(Color.white, lineWidth: 2))
+                                .shadow(radius: 3)
+                                .padding()
+                        } else {
+                            Image("profile")
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .clipShape(Circle())
+                                .frame(width: 100, height: 100)
+                                .overlay(Circle().stroke(Color.white, lineWidth: 2))
+                                .shadow(radius: 3)
+                                .padding()
+                        }
+                        Text("Profile Picture").padding(.leading,10)
+                    }
+                    Button("Camera") {
+                        self.sourceType = .camera
+                        self.isImagePickerDisplay.toggle()
+                    }
+                }
+                
                 Section {
                     TextField("First Name", text: $firstName)
                     TextField("Last Name", text: $lastName)
@@ -88,7 +126,10 @@ struct AddStudent: View {
             .navigationBarTitle("Add New Student")
         }.alert(isPresented: $showingAlert) {
             Alert(title: Text("Could not add student"), message: Text("Make sure all the fields are filled"), dismissButton: .default(Text("Retry")))
+        }.sheet(isPresented: self.$isImagePickerDisplay) {
+            ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.sourceType)
         }
+
     }
 }
 

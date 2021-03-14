@@ -9,14 +9,23 @@ import SwiftUI
 
 struct StudentListItem: View {
     var student: Student
+    @EnvironmentObject var studentData: studentData
     
     var body: some View {
         HStack {
-            student.image
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 60, height: 60)
-                .clipShape(Circle())
+            if !student.added {
+                student.image
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 60, height: 60)
+                    .clipShape(Circle())
+            } else {
+                Image(uiImage: studentData.images["\(student.firstName)Pic"]!)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 60, height: 60)
+                    .clipShape(Circle())
+            }
             Text("\(student.firstName) \(student.lastName)")
             Spacer()
             Spacer()

@@ -13,6 +13,8 @@ struct StudentDetail: View {
     @State var student: Student
     @Binding var showAddButton: Bool
     
+    @State var studentImage = Image(systemName: "")
+    
     var studentInd: Int {
         sData.students.firstIndex(where: { $0.id == student.id })!
     }
@@ -23,7 +25,7 @@ struct StudentDetail: View {
 
     var body: some View {
         ScrollView{
-           sImage(studentImage: student.image)
+           sImage(studentImage: studentImage)
                 .padding()
                 .padding(.top,20)
                 .frame(alignment: .center)
@@ -90,6 +92,12 @@ struct StudentDetail: View {
             showAddButton = true
         }.onAppear {
             showAddButton = false
+            
+            if !student.added {
+                studentImage = student.image
+            } else {
+                studentImage = Image(uiImage: sData.images["\(student.firstName)Pic"]!)
+            }
         }
    }
 }

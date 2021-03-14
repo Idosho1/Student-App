@@ -7,9 +7,12 @@
 
 import Foundation
 import Combine
+import SwiftUI
+import UIKit
 
 final class studentData: ObservableObject {
     @Published var students: [Student] = load("data.json")
+    @Published var images: [String:UIImage] = [:]
 }
 
 
