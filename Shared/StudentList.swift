@@ -9,7 +9,19 @@ import Foundation
 import SwiftUI
 import Combine
 
+let coloredNavAppearance = UINavigationBarAppearance()
+
 struct StudentList: View {
+    init() {
+        coloredNavAppearance.configureWithOpaqueBackground()
+        coloredNavAppearance.backgroundColor = .systemBlue
+        coloredNavAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        coloredNavAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+
+        UINavigationBar.appearance().standardAppearance = coloredNavAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = coloredNavAppearance
+    }
+    
     @EnvironmentObject var studentData: studentData
     
     var grades = ["All","A","B","C","D"]
@@ -41,51 +53,52 @@ struct StudentList: View {
         }.sorted { $0.firstName.lowercased() < $1.firstName.lowercased() }
     }
     
-/*    func deleteStudent(at sortedOffsets: IndexSet) {
-        let unsoretdOffsets = IndexSet()
-        studentData.students.remove(atOffsets: unsoretdOffsets)
-    }
-*/
     var body: some View {
-        NavigationView {
-            List {
-                Section(header: Text("Filter Grade").textCase(.none)) {
-                    Picker("", selection: $gradesIndex) {
-                        Text("All").tag(0)
-                        Text("A").tag(1)
-                        Text("B").tag(2)
-                        Text("C").tag(3)
-                        Text("D").tag(4)
-                    }.pickerStyle(SegmentedPickerStyle()).padding(.vertical, 5)
-                }
-                
-                if filteredStudents.count > 0 {
-                    Section(header: Text("Students").textCase(.none)) {
-                    ForEach(filteredStudents) { student in
-                        NavigationLink(destination: StudentDetail(student: student)) {
-                            StudentListItem(student: student).padding(.vertical, 3)
-                        }
-                    }/*.onDelete(perform: deleteStudent)
-                      studentData.students = studentData.students.sorted { $0.firstName.lowercased() < $1.firstName.lowercased() }
-                      studentData.students.remove(atOffsets: indexSet)
-                    })*/
-                }
-                    Section(header: Text("Details").textCase(.none)) {
-                        if gradesIndex != 0 {
-                            Text("\(filteredStudents.count) / \(students.count) Students Displayed").foregroundColor(.secondary)
-                            Text("\(averageFilteredScore) Displayed Average / \(averageScore) Overall Average").foregroundColor(.secondary)
-                        } else {
-                            Text("\(students.count) Total Students").foregroundColor(.secondary)
-                            Text("\(averageScore) Average Student Score").foregroundColor(.secondary)
+        //ZStack {
+            
+            NavigationView {
+                //Color.purple.ignoresSafeArea()
+                //ZStack {
+                List {
+                    Section(header: Text("Filter Grade").textCase(.none)) {
+                        Picker("", selection: $gradesIndex) {
+                            Text("All").tag(0)
+                            Text("A").tag(1)
+                            Text("B").tag(2)
+                            Text("C").tag(3)
+                            Text("D").tag(4)
+                        }.pickerStyle(SegmentedPickerStyle()).padding(.vertical, 5)
+                    }
+                    
+                    if filteredStudents.count > 0 {
+                        Section(header: Text("Students").textCase(.none)) {
+                        ForEach(filteredStudents) { student in
+                            NavigationLink(destination: StudentDetail(student: student)) {
+                                StudentListItem(student: student).padding(.vertical, 3)
+                            }
+                        }.onDelete { IndexSet in
+                            let idsToDelete = IndexSet.map { filteredStudents[$0].id } //ID of Student to Remove
+                            studentData.students.removeAll(where: {$0.id == idsToDelete[0]}) //Remove Student with ID
                         }
                     }
-                } else {
-                    Section(header: Text("Details").textCase(.none)) {
-                        Text("No Students Found!").foregroundColor(.secondary)
+                        Section(header: Text("Details").textCase(.none)) {
+                            if gradesIndex != 0 {
+                                Text("\(filteredStudents.count) / \(students.count) Students Displayed").foregroundColor(.secondary)
+                                Text("\(averageFilteredScore) Displayed Average / \(averageScore) Overall Average").foregroundColor(.secondary)
+                            } else {
+                                Text("\(students.count) Total Students").foregroundColor(.secondary)
+                                Text("\(averageScore) Average Student Score").foregroundColor(.secondary)
+                            }
+                        }
+                    } else {
+                        Section(header: Text("Details").textCase(.none)) {
+                            Text("No Students Found!").foregroundColor(.secondary)
+                        }
                     }
-                }
-            }.navigationTitle("Students")
-        }
+                }.navigationTitle("Student Directory")
+                //.navigationBarItems(leading: Text("Hello"))
+            }.accentColor(.white)
+        //}
     }
 }
 
