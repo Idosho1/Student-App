@@ -11,6 +11,7 @@ struct StudentDetail: View {
     @State private var showEditPrompt = false
     @EnvironmentObject var sData: studentData
     @State var student: Student
+    @Binding var showAddButton: Bool
     
     var studentInd: Int {
         sData.students.firstIndex(where: { $0.id == student.id })!
@@ -83,8 +84,12 @@ struct StudentDetail: View {
                     }
                 }.padding(.horizontal,20).padding(.vertical,10)
             }
-            .navigationTitle("\(student.lastName), \(student.firstName)")
+            .navigationTitle("\(student.firstName) \(student.lastName)")
             
+        }.onDisappear {
+            showAddButton = true
+        }.onAppear {
+            showAddButton = false
         }
    }
 }
@@ -92,7 +97,7 @@ struct StudentDetail: View {
 struct StudentDetail_Previews: PreviewProvider {
     static let sData = studentData()
     static var previews: some View {
-        StudentDetail(student: sData.students[1])
+        StudentDetail(student: sData.students[1], showAddButton: .constant(true))
             .environmentObject(sData)
     }
 }

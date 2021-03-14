@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3524CD0B25FDE2CB007B05C8 /* alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3524CD0A25FDE2CB007B05C8 /* alert.swift */; };
 		3524CD0C25FDE2CB007B05C8 /* alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3524CD0A25FDE2CB007B05C8 /* alert.swift */; };
+		3524CD1025FE706E007B05C8 /* AddStudent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3524CD0F25FE706E007B05C8 /* AddStudent.swift */; };
+		3524CD1125FE706E007B05C8 /* AddStudent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3524CD0F25FE706E007B05C8 /* AddStudent.swift */; };
 		353F346D25EEC466003AEC00 /* Student_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F345A25EEC465003AEC00 /* Student_AppApp.swift */; };
 		353F346E25EEC466003AEC00 /* Student_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F345A25EEC465003AEC00 /* Student_AppApp.swift */; };
 		353F346F25EEC466003AEC00 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F345B25EEC465003AEC00 /* ContentView.swift */; };
@@ -33,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		3524CD0A25FDE2CB007B05C8 /* alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alert.swift; sourceTree = "<group>"; };
+		3524CD0F25FE706E007B05C8 /* AddStudent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudent.swift; sourceTree = "<group>"; };
 		353F345A25EEC465003AEC00 /* Student_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student_AppApp.swift; sourceTree = "<group>"; };
 		353F345B25EEC465003AEC00 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		353F345C25EEC466003AEC00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -84,6 +87,7 @@
 				353F345A25EEC465003AEC00 /* Student_AppApp.swift */,
 				353F345B25EEC465003AEC00 /* ContentView.swift */,
 				353F349325EF053D003AEC00 /* StudentList.swift */,
+				3524CD0F25FE706E007B05C8 /* AddStudent.swift */,
 				353F348725EEC84A003AEC00 /* StudentListItem.swift */,
 				353F348225EEC80E003AEC00 /* Student.swift */,
 				353F349825EF05AF003AEC00 /* StudentData.swift */,
@@ -230,6 +234,7 @@
 				353F349E25EF05CF003AEC00 /* sImage.swift in Sources */,
 				3524CD0B25FDE2CB007B05C8 /* alert.swift in Sources */,
 				353F346D25EEC466003AEC00 /* Student_AppApp.swift in Sources */,
+				3524CD1025FE706E007B05C8 /* AddStudent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +251,7 @@
 				353F349F25EF05CF003AEC00 /* sImage.swift in Sources */,
 				3524CD0C25FDE2CB007B05C8 /* alert.swift in Sources */,
 				353F346E25EEC466003AEC00 /* Student_AppApp.swift in Sources */,
+				3524CD1125FE706E007B05C8 /* AddStudent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

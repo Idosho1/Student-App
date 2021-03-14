@@ -87,3 +87,10 @@ extension View {
     AlertWrapper(isPresented: isPresented, alert: alert, content: self)
   }
 }
+
+extension View {
+  func endTextEditing() {
+    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder),
+                                    to: nil, from: nil, for: nil)
+  }
+}

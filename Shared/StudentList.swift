@@ -26,7 +26,8 @@ struct StudentList: View {
     
     var grades = ["All","A","B","C","D"]
     @State private var gradesIndex = 0
-    @State var showAddButton = false
+    @State var showAddButton = true
+    @State private var showModal = false
     
     var students: [Student] {
         return studentData.students
@@ -72,7 +73,7 @@ struct StudentList: View {
                     if filteredStudents.count > 0 {
                         Section(header: Text("Students").textCase(.none)) {
                         ForEach(filteredStudents) { student in
-                            NavigationLink(destination: StudentDetail(student: student), isActive: $showAddButton) {
+                            NavigationLink(destination: StudentDetail(student: student, showAddButton: self.$showAddButton)) {
                                 StudentListItem(student: student).padding(.vertical, 3)
                             }
                         }.onDelete { IndexSet in
@@ -97,12 +98,12 @@ struct StudentList: View {
                 }.navigationTitle("Student Directory")
             }.accentColor(.white)
             
-            if !showAddButton {
+            if showAddButton {
                 VStack {
                     Spacer()
                     HStack {
                         Spacer()
-                        Button(action: {}) {
+                        Button(action: {self.showModal.toggle()}) {
                             Text("+")
                                 .font(.system(.largeTitle))
                                 .frame(width: 75, height: 75)
@@ -114,7 +115,7 @@ struct StudentList: View {
                         .padding(.trailing,20)
                         .shadow(color: Color.black.opacity(0.3), radius: 3, x: 3, y: 3)
                     }
-                }
+                }.sheet(isPresented: $showModal) {AddStudent(showModal: self.$showModal)}
             }
         }
     }
