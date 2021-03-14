@@ -26,8 +26,7 @@ struct StudentList: View {
     
     var grades = ["All","A","B","C","D"]
     @State private var gradesIndex = 0
-    
-    @State private var animate = false
+    @State var showAddButton = false
     
     var students: [Student] {
         return studentData.students
@@ -54,7 +53,7 @@ struct StudentList: View {
     }
     
     var body: some View {
-        //ZStack {
+        ZStack {
             
             NavigationView {
                 //Color.purple.ignoresSafeArea()
@@ -73,7 +72,7 @@ struct StudentList: View {
                     if filteredStudents.count > 0 {
                         Section(header: Text("Students").textCase(.none)) {
                         ForEach(filteredStudents) { student in
-                            NavigationLink(destination: StudentDetail(student: student)) {
+                            NavigationLink(destination: StudentDetail(student: student), isActive: $showAddButton) {
                                 StudentListItem(student: student).padding(.vertical, 3)
                             }
                         }.onDelete { IndexSet in
@@ -96,9 +95,28 @@ struct StudentList: View {
                         }
                     }
                 }.navigationTitle("Student Directory")
-                //.navigationBarItems(leading: Text("Hello"))
             }.accentColor(.white)
-        //}
+            
+            if !showAddButton {
+                VStack {
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        Button(action: {}) {
+                            Text("+")
+                                .font(.system(.largeTitle))
+                                .frame(width: 75, height: 75)
+                                .foregroundColor(.white)
+                        }
+                        .background(Color.blue)
+                        .clipShape(Circle())
+                        .padding(.bottom,6)
+                        .padding(.trailing,20)
+                        .shadow(color: Color.black.opacity(0.3), radius: 3, x: 3, y: 3)
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -108,4 +126,3 @@ struct StudentList_Previews: PreviewProvider {
             .environmentObject(studentData())
     }
 }
-

@@ -22,7 +22,6 @@ struct StudentDetail: View {
 
     var body: some View {
         ScrollView{
-            
            sImage(studentImage: student.image)
                 .padding()
                 .padding(.top,20)
