@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct StudentDetail: View {
+    @State private var showEditPrompt = false
     @EnvironmentObject var sData: studentData
-    var student: Student
-
+    @State var student: Student
+    
     var studentInd: Int {
         sData.students.firstIndex(where: { $0.id == student.id })!
+    }
+    
+    func editScorePrompt() {
+        showEditPrompt = true
     }
 
     var body: some View {
@@ -64,7 +69,19 @@ struct StudentDetail: View {
                 HStack {
                     Text("Score").bold().italic()
                     Spacer()
-                    Text(String(format: "%.1f", student.averageScore)).italic()
+                    HStack {
+                        Image("edit").resizable().frame(width: 25, height: 25).onTapGesture {
+                            editScorePrompt()
+                        }.alert(isPresented: $showEditPrompt,TextAlert(title: "New Score", message: "Enter a new score below", keyboardType: .decimalPad) { result in
+                                  if let newScoreString = result {
+                                    if let newScore = Double(newScoreString) {
+                                        student.averageScore = newScore
+                                        sData.students[sData.students.firstIndex(where: {$0.id == student.id})!].averageScore = newScore
+                                    }
+                                  }
+                        }).padding(.trailing, -255)
+                        Text(String(format: "%.1f", student.averageScore)).italic()
+                    }
                 }.padding(.horizontal,20).padding(.vertical,10)
             }
             .navigationTitle("\(student.lastName), \(student.firstName)")
