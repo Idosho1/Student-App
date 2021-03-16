@@ -45,9 +45,9 @@ struct StudentList: View {
         return students.filter { student in
             switch grades[gradesIndex] {
             case "A": return (student.averageScore >= 90)
-            case "B": return (student.averageScore >= 80 && student.averageScore < 90)
-            case "C": return (student.averageScore >= 70 && student.averageScore < 80)
-            case "D": return (student.averageScore >= 60 && student.averageScore < 70)
+            case "B": return (student.averageScore >= 80)
+            case "C": return (student.averageScore >= 70)
+            case "D": return (student.averageScore >= 60)
             default: return true
             }
         }.sorted { $0.firstName.lowercased() < $1.firstName.lowercased() }

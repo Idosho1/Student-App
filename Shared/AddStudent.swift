@@ -71,6 +71,10 @@ struct AddStudent: View {
                 Section {
                     HStack {
                         if selectedImage != nil {
+                            Button(action: {
+                                self.sourceType = .camera
+                                self.isImagePickerDisplay.toggle()
+                            }) {
                             Image(uiImage: selectedImage!)
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
@@ -79,22 +83,28 @@ struct AddStudent: View {
                                 .overlay(Circle().stroke(Color.white, lineWidth: 2))
                                 .shadow(radius: 3)
                                 .padding()
+                            }
                         } else {
-                            Image("profile")
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .clipShape(Circle())
-                                .frame(width: 100, height: 100)
-                                .overlay(Circle().stroke(Color.white, lineWidth: 2))
-                                .shadow(radius: 3)
-                                .padding()
+                            Button(action: {
+                                self.sourceType = .camera
+                                self.isImagePickerDisplay.toggle()
+                            }) {
+                                Image("profile")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .clipShape(Circle())
+                                    .frame(width: 100, height: 100)
+                                    .overlay(Circle().stroke(Color.white, lineWidth: 2))
+                                    .shadow(radius: 3)
+                                    .padding()
+                            }
                         }
                         Text("Profile Picture").padding(.leading,10)
                     }
-                    Button("Camera") {
+                    /*Button("Camera") {
                         self.sourceType = .camera
                         self.isImagePickerDisplay.toggle()
-                    }
+                    }*/
                 }
                 
                 Section {
