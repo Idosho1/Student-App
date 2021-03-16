@@ -138,7 +138,7 @@ struct AddStudent: View {
             Alert(title: Text("Could not add student"), message: Text("Make sure all the fields are filled"), dismissButton: .default(Text("Retry")))
         }.sheet(isPresented: self.$isImagePickerDisplay) {
             ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.sourceType)
-        }
+        }.preferredColorScheme(.light)
 
     }
 }
