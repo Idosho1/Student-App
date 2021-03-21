@@ -28,6 +28,8 @@ struct StudentList: View {
     @State private var gradesIndex = 0
     @State var showAddButton = true
     @State private var showModal = false
+    @State private var searchString = ""
+    @State private var showSearch = false
     
     var students: [Student] {
         return studentData.students
@@ -51,6 +53,7 @@ struct StudentList: View {
             default: return true
             }
         }.sorted { $0.firstName.lowercased() < $1.firstName.lowercased() }
+        .filter({searchString.isEmpty ? true : $0.firstName.lowercased().contains(searchString.lowercased()) || $0.lastName.lowercased().contains(searchString.lowercased())})
     }
     
     var body: some View {
@@ -61,18 +64,36 @@ struct StudentList: View {
                 //ZStack {
                 List {
                     Section(header: Text("Filter Grade").textCase(.none)) {
-                        Picker("", selection: $gradesIndex) {
-                            Text("All").tag(0)
-                            Text("A").tag(1)
-                            Text("B").tag(2)
-                            Text("C").tag(3)
-                            Text("D").tag(4)
-                        }.pickerStyle(SegmentedPickerStyle()).padding(.vertical, 5)
+                        VStack {
+                            HStack {
+                                Picker("", selection: $gradesIndex) {
+                                    Text("All").tag(0)
+                                    Text("A").tag(1)
+                                    Text("B").tag(2)
+                                    Text("C").tag(3)
+                                    Text("D").tag(4)
+                                }.pickerStyle(SegmentedPickerStyle()).padding(.vertical, 5)
+                                    Image(systemName: "magnifyingglass")
+                                        .foregroundColor(.gray)
+                                        .frame(minWidth: 0, maxWidth: 20, alignment: .leading)
+                                        .padding(.horizontal, 5)
+                                        .onTapGesture {
+                                            withAnimation {
+                                                showSearch.toggle()
+                                            }
+                                        }
+                            }
+                            if showSearch {
+                                SearchBar(text: $searchString).padding(.bottom,4)
+                                    .transition(.move(edge: .leading))
+                            }
+                                
+                        }
                     }
                     
                     if filteredStudents.count > 0 {
                         Section(header: Text("Students").textCase(.none)) {
-                        ForEach(filteredStudents) { student in
+                            ForEach(filteredStudents) { student in
                             NavigationLink(destination: StudentDetail(student: student, showAddButton: self.$showAddButton)) {
                                 StudentListItem(student: student).padding(.vertical, 3)
                             }
@@ -82,7 +103,7 @@ struct StudentList: View {
                         }
                     }
                         Section(header: Text("Details").textCase(.none)) {
-                            if gradesIndex != 0 {
+                            if filteredStudents.count != students.count {
                                 Text("\(filteredStudents.count) / \(students.count) Students Displayed").foregroundColor(.secondary)
                                 Text("\(averageFilteredScore) Displayed Average / \(averageScore) Overall Average").foregroundColor(.secondary)
                             } else {
@@ -114,8 +135,10 @@ struct StudentList: View {
                         .padding(.bottom,6)
                         .padding(.trailing,20)
                         .shadow(color: Color.black.opacity(0.3), radius: 3, x: 3, y: 3)
+                        .transition(.move(edge: .bottom))
                     }
-                }.sheet(isPresented: $showModal) {AddStudent(showModal: self.$showModal)}
+                }
+                .sheet(isPresented: $showModal) {AddStudent(showModal: self.$showModal)}
             }
         }
     }

@@ -89,9 +89,13 @@ struct StudentDetail: View {
             .navigationTitle("\(student.firstName) \(student.lastName)")
             
         }.onDisappear {
-            showAddButton = true
+            withAnimation {
+                showAddButton = true
+            }
         }.onAppear {
-            showAddButton = false
+            withAnimation {
+                showAddButton = false
+            }
             
             if !student.added {
                 studentImage = student.image
